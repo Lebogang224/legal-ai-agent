@@ -26,9 +26,12 @@ Answer:"""
 
 def _get_embeddings():
     """Get the same embedding model used during ingestion."""
-    from langchain_community.embeddings import FastEmbedEmbeddings
+    from langchain_community.embeddings import HuggingFaceEmbeddings
 
-    return FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+    return HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"},
+    )
 
 
 def _get_llm():

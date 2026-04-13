@@ -13,10 +13,13 @@ logger = logging.getLogger(__name__)
 
 
 def _get_embeddings():
-    """Get embedding model — uses FastEmbed (lightweight, no PyTorch needed)."""
-    from langchain_community.embeddings import FastEmbedEmbeddings
+    """Get embedding model — uses HuggingFace (free, local) for embeddings."""
+    from langchain_community.embeddings import HuggingFaceEmbeddings
 
-    return FastEmbedEmbeddings(model_name="BAAI/bge-small-en-v1.5")
+    return HuggingFaceEmbeddings(
+        model_name="all-MiniLM-L6-v2",
+        model_kwargs={"device": "cpu"},
+    )
 
 
 def process_document(document_id: str, db_session_factory) -> None:

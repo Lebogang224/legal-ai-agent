@@ -9,7 +9,7 @@ from botocore.exceptions import ClientError
 from app.config import settings
 
 # Local storage fallback for development (no AWS credentials needed)
-LOCAL_STORAGE_DIR = Path("./data/uploads")
+LOCAL_STORAGE_DIR = Path(os.environ.get("UPLOAD_DIR", "./data/uploads"))
 
 
 def _use_local_storage() -> bool:

@@ -1,3 +1,12 @@
+---
+title: Legal AI Agent
+emoji: "⚖"
+colorFrom: blue
+colorTo: indigo
+sdk: docker
+app_port: 7860
+---
+
 # Legal AI Agent
 
 AI-powered legal document Q&A platform. Upload legal PDFs and ask natural language questions — the system retrieves relevant sections and generates grounded answers with source citations.

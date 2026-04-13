@@ -25,9 +25,9 @@ class Settings(BaseSettings):
     # Redis
     redis_url: str = "redis://localhost:6379/0"
 
-    # LLM
-    anthropic_api_key: str = ""
-    llm_model: str = "claude-sonnet-4-6"
+    # LLM (Groq — free tier, runs Llama 3)
+    groq_api_key: str = ""
+    llm_model: str = "llama-3.3-70b-versatile"
     llm_max_tokens: int = 2048
     llm_temperature: float = 0.1
 

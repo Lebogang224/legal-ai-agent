@@ -35,12 +35,12 @@ def _get_embeddings():
 
 
 def _get_llm():
-    """Get Claude LLM via LangChain."""
-    from langchain_anthropic import ChatAnthropic
+    """Get LLM via Groq (free tier — Llama 3 70B)."""
+    from langchain_groq import ChatGroq
 
-    return ChatAnthropic(
+    return ChatGroq(
         model=settings.llm_model,
-        anthropic_api_key=settings.anthropic_api_key,
+        groq_api_key=settings.groq_api_key,
         max_tokens=settings.llm_max_tokens,
         temperature=settings.llm_temperature,
     )
@@ -91,7 +91,7 @@ def ask(document_id: str, question: str) -> dict:
 
     context = "\n\n---\n\n".join(context_parts)
 
-    # Step 4 & 5: Build prompt and call LLM
+    # Step 4 & 5: Build prompt and call LLM (Groq — Llama 3 70B)
     llm = _get_llm()
     prompt = QA_PROMPT_TEMPLATE.format(context=context, question=question)
 
